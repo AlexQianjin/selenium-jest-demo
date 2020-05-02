@@ -1,0 +1,26 @@
+{
+  "name": "selenium-jest-demo",
+  "version": "1.0.0",
+  "description": "A sample code for selenium with jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexQianjin/selenium-jest-demo.git"
+  },
+  "keywords": [],
+  "author": "AlexQin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexQianjin/selenium-jest-demo/issues"
+  },
+  "homepage": "https://github.com/AlexQianjin/selenium-jest-demo#readme",
+  "devDependencies": {
+    "jest": "^25.5.2"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.7"
+  }
+}
