@@ -4,7 +4,7 @@
   "description": "A sample code for selenium with jest",
   "main": "index.js",
   "scripts": {
-    "test": "jest index.test.js"
+    "test": "jest --config jest.config.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/AlexQianjin/selenium-jest-demo#readme",
   "devDependencies": {
-    "jest": "^25.5.2"
+    "jest": "^25.5.2",
+    "jest-html-reporters": "^1.2.1"
   },
   "dependencies": {
     "selenium-webdriver": "^4.0.0-alpha.7"

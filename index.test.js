@@ -22,21 +22,25 @@ const getElementByXpath = async (driver, xpath, timeout = 2000) => {
   return await driver.wait(until.elementIsVisible(el), timeout);
 };
 
-describe('webdriver', () => {
+describe('Selenium Jest Demo', () => {
   let driver;
 
   beforeAll(async () => {
       try {
-        const capabilities = {browserName: 'firefox'};
+        // const capabilities = {browserName: 'chrome'};
         driver = new Builder()
-        // .forBrowser('firefox')
+        .forBrowser('chrome')
         // .setFirefoxOptions(options)
-        .withCapabilities(capabilities)
-        .usingServer('http://10.0.2.15:4444/wd/hub')
+        // .withCapabilities(capabilities)
+        // .usingServer('http://10.0.2.15:4444/wd/hub')
         .build();  // Specify Your Local Browser
+        await driver.manage().window().maximize();
 
         // eslint-disable-next-line no-undef
         await driver.get(`https://cn.bing.com`);
+        // await driver.get(
+        //     `https://test-experience.test-connect.aveva.com/`,
+        //     );
       } catch (error) {
           console.log(error, 30);
       }
@@ -47,9 +51,8 @@ describe('webdriver', () => {
     await driver.quit();
   }, 15000);
 
-  test('test', async () => {
+  test('Search Selenium in the Bing', async () => {
     try {
-        // await driver.sleep(5 * 1000);
         const inpf = await getElementById(driver, 'sb_form_q');
         await inpf.clear();
         await inpf.sendKeys("Selenium");
@@ -64,10 +67,9 @@ describe('webdriver', () => {
         const outputVal = await output.getText();
         console.log(outputVal, 50)
         expect(outputVal).toBe("WEB");
-
     } catch (error) {
         console.log(error, 59);
 
     }
-  }, 10000);
+  }, 100 *1000);
 });
