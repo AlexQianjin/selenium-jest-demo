@@ -4,7 +4,7 @@
   "description": "A sample code for selenium with jest",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest index.test.js"
   },
   "repository": {
     "type": "git",

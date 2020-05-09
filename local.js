@@ -1,4 +1,6 @@
-const { Builder, until, By } = require('selenium-webdriver');
+const webdriver = require('selenium-webdriver');
+const { until } = require('selenium-webdriver');
+const { By } = require('selenium-webdriver');
 // const firefox = require('selenium-webdriver/firefox');
 // firefox.setDefaultService(new firefox.ServiceBuilder('/usr/local/bin/geckodriver')).build();
 
@@ -22,52 +24,35 @@ const getElementByXpath = async (driver, xpath, timeout = 2000) => {
   return await driver.wait(until.elementIsVisible(el), timeout);
 };
 
-describe('webdriver', () => {
-  let driver;
-
-  beforeAll(async () => {
-      try {
+(async () => {
+    try {
         const capabilities = {browserName: 'firefox'};
-        driver = new Builder()
+        driver = new webdriver.Builder()
         // .forBrowser('firefox')
         // .setFirefoxOptions(options)
         .withCapabilities(capabilities)
-        .usingServer('http://10.0.2.15:4444/wd/hub')
+        // .usingServer('http://10.0.2.15:4444/wd/hub')
         .build();  // Specify Your Local Browser
-
+    
         // eslint-disable-next-line no-undef
         await driver.get(`https://cn.bing.com`);
-      } catch (error) {
-          console.log(error, 30);
-      }
-
-  }, 10000);
-
-  afterAll(async () => {
-    await driver.quit();
-  }, 15000);
-
-  test('test', async () => {
-    try {
+    
         // await driver.sleep(5 * 1000);
         const inpf = await getElementById(driver, 'sb_form_q');
         await inpf.clear();
         await inpf.sendKeys("Selenium");
-
+    
         const btn = await getElementById(driver, 'sb_form_go');
         await btn.click();
-
+    
         const output = await getElementByXpath(
           driver,
-          '/html/body/header/nav/ul/li[1]/a'
+          '/html/body/header/nav/ul/li[1]/a' 
         );
         const outputVal = await output.getText();
         console.log(outputVal, 50)
-        expect(outputVal).toBe("WEB");
+      } catch (error) {
+          console.log(error, 30);
+      }
+})();
 
-    } catch (error) {
-        console.log(error, 59);
-
-    }
-  }, 10000);
-});
