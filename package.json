@@ -4,7 +4,9 @@
   "description": "A sample code for selenium with jest",
   "main": "index.js",
   "scripts": {
-    "test": "jest --config jest.config.js"
+    "test": "jest ./test-suites --config jest.config.js",
+    "lint": "./node_modules/.bin/eslint ./",
+    "lintfixed": "./node_modules/.bin/eslint ./ --fix"
   },
   "repository": {
     "type": "git",
@@ -18,10 +20,12 @@
   },
   "homepage": "https://github.com/AlexQianjin/selenium-jest-demo#readme",
   "devDependencies": {
+    "eslint": "^7.0.0",
     "jest": "^25.5.2",
     "jest-html-reporters": "^1.2.1"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "selenium-webdriver": "^4.0.0-alpha.7"
   }
 }
