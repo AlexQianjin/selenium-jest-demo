@@ -1,4 +1,4 @@
-const { Builder,until, By } = require('selenium-webdriver');
+const { Builder, until, By } = require('selenium-webdriver');
 // const firefox = require('selenium-webdriver/firefox');
 // firefox.setDefaultService(new firefox.ServiceBuilder('/usr/local/bin/geckodriver')).build();
 
@@ -22,7 +22,7 @@ const getElementByXpath = async (driver, xpath, timeout = 2000) => {
     return await driver.wait(until.elementIsVisible(el), timeout);
 };
 
-const baidu_search = async driver => {
+const bingSearch = async driver => {
     try {
     // eslint-disable-next-line no-undef
         await driver.get('https://cn.bing.com');
@@ -60,9 +60,9 @@ const baidu_search = async driver => {
                 .usingServer('http://10.0.2.15:4444/wd/hub')
                 .withCapabilities(browser)
             // .setFirefoxOptions(options)
-                .build();  // Specify Your Local Browser
+                .build(); // Specify Your Local Browser
 
-            baidu_search(driver);
+            bingSearch(driver);
         });
     } catch (error) {
         console.log(error, 30);

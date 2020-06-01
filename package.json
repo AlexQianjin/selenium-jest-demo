@@ -4,7 +4,7 @@
   "description": "A sample code for selenium with jest",
   "main": "index.js",
   "scripts": {
-    "test": "jest ./test-suites --config jest.config.js",
+    "test": "jest ./test-suites --config jest.config.js --runInBand",
     "lint": "./node_modules/.bin/eslint ./",
     "lintfixed": "./node_modules/.bin/eslint ./ --fix"
   },
@@ -25,7 +25,9 @@
     "jest-html-reporters": "^1.2.1"
   },
   "dependencies": {
+    "@azure/storage-blob": "^12.1.2",
     "dotenv": "^8.2.0",
-    "selenium-webdriver": "^4.0.0-alpha.7"
+    "selenium-webdriver": "^4.0.0-alpha.7",
+    "superagent": "^5.2.2"
   }
 }
